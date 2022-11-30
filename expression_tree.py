@@ -388,7 +388,7 @@ class Expression:
     def update_operator_info(self, *, operator: str, operator_info: Tuple[int, int]) -> None:
         """Update the info of an operator."""
         self.operators_info[operator] = operator_info
-        self.validate()
+        self._validate()
 
     def get_operands(self) -> set:
         """Return set that contains all symbols in the expression."""

@@ -1,9 +1,11 @@
 from random import random, choice, randint
 from pprint import pprint
-from expression_tree import Expression
+from math import sin, cos
+from expression_tree import Expression, Node
+
 
 def f(x):
-    return x**3 + 9*x
+    return x**3 + 9*x + sin(2*x)
 
 
 # UNARIES = ["sqrt(%s)", "exp(%s)", "log(%s)", "sin(%s)", "cos(%s)", "tan(%s)",
@@ -41,14 +43,50 @@ def f(x):
 #         else:
 #             scope.append(choice(UNARIES) % choice(scope))
 #     return scope[-num_exp:]  # return most recent expressions
-def main():
-        # n = int(input('how much samples: '))
-    # listpar = [f(x) for x in range(n)]
-    # print(listpar)
 
-    # tree.parse('x^2 + x +1')
-    # tree.setVariable('x',2)
-    # print(tree.evaluate())
+def operator_map(ch: str, left_sum, right_sum):
+    if ch == '+':
+        return left_sum + right_sum
+    elif ch == '-':
+        return left_sum - right_sum
+    elif ch == '*':
+        return left_sum * right_sum
+    elif ch == '/':
+        return left_sum / right_sum
+    elif ch == '^':
+        return left_sum ** right_sum
+    elif ch == 'cos':
+        return cos(right_sum)
+    elif ch == 'sin':
+        return sin(right_sum)
+    else:
+        pass
+
+
+def evaluate(root: Node, vars: dict):
+
+    # empty tree
+    if root is None:
+        return 0
+    # leaf node
+    if root.left is None and root.right is None:
+        if root.value in vars:
+            return vars[root.value]
+            # TODO : add check for is digit & in vars throw
+        else:
+            return int(root.value)
+    # TODO : just int not float sin(1.45)
+    # TODO : sin is radian
+
+    # evaluate left tree
+    left_sum = evaluate(root.left, vars)
+    # evaluate right tree
+    right_sum = evaluate(root.right, vars)
+    # check which operation to apply
+    return operator_map(root.value, left_sum, right_sum)
+
+
+def main():
 
     # strscope = "abcde"
     # scope = [c for c in strscope]
@@ -66,6 +104,8 @@ def main():
     expr = "x+sin(90)^2*y"
     expr = '1+2*x^9/cos(x^2)+2*y^9'
     expr = '1+2*x^9/cos(x^2)^2+2*y^9'
+    expr = "x+2*y^2"
+
     op = {'+', '-', '*', '/', '^',
           'sin', 'cos'}
     op_info = {'+': (2, 1), '-': (2, 1),
@@ -82,8 +122,9 @@ def main():
                       operators_associativity=assotiation, variables=varchar)
     print(expr)
     print(test.tree())
-    pprint(test._tokens)
-    pprint(list(expr))
+    # pprint(test._tokens)
+    # pprint(list(expr))
+    print(evaluate(test.tree(), {'x': 4, 'y': 2}))
 
 
 if __name__ == '__main__':
