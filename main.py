@@ -1,12 +1,28 @@
 from random import random, choice, randint
 from pprint import pprint
 from math import sin, cos
-from expression_tree import Expression, Node
+from expression_tree import Expression
+from binarytree import Node
 import numpy as np
 
 
 def f(x):
     return x**x + x
+
+
+op = {'+', '-', '*', '/', '^',
+      'sin', 'cos'}
+op_info = {'+': (2, 1), '-': (2, 1),
+           '*': (2, 2), '/': (2, 2),
+           '^': (2, 3),
+           'sin': (1, 4), 'cos': (1, 4)}
+assotiation = {'+': 'LR', '-': 'LR',
+               '*': 'LR', '/': 'LR',
+               '^': 'RL',
+               'sin': 'RL', 'cos': 'RL'}
+varchar = {'x'}
+strscope = 'x'
+scope = [c for c in strscope]
 
 
 UNARIES = ["sqrt(%s)", "exp(%s)", "log(%s)", "sin(%s)", "cos(%s)", "tan(%s)",
@@ -16,18 +32,6 @@ BINARIES = ["%s + %s", "%s - %s", "%s * %s", "%s / %s", "%s ^ %s"]
 
 PROP_PARANTHESIS = 0.4
 PROP_BINARY = 1.0
-
-# # def generate_expressions2(scope, num_exp, num_ops):
-# #     scope = list(scope) # make a copy first, append as we go
-# #     for _ in range(num_ops):
-# #         if random() < PROP_BINARY: # decide unary or binary operator
-# #             ex = choice(BINARIES) % (choice(scope), choice(scope))
-# #             if random() < PROP_PARANTHESIS:
-# #                 ex = "(%s)" % ex
-# #             scope.append(ex)
-# #         else:
-# #             scope.append(choice(UNARIES) % choice(scope))
-# #     return scope[-num_exp:] # return most recent expressions
 
 
 def generate_expressions(scope, num_exp, num_ops):
@@ -69,7 +73,9 @@ def operator_map(ch: str, left_sum, right_sum):
 
 
 def evaluate(root: Node, vars: dict):
-
+    """evaluate value of tree from the input for variables using recursive
+    inorder traverse
+    """
     # empty tree
     if root is None:
         return 0
@@ -80,14 +86,11 @@ def evaluate(root: Node, vars: dict):
             # TODO : add check for is digit & in vars throw
         else:
             return int(root.value)
-    # TODO : just int not float sin(1.45)
-    # TODO : sin is radian
+            # TODO : just int not float sin(1.45)
+            # TODO : sin is radian
 
-    # evaluate left tree
     left_sum = evaluate(root.left, vars)
-    # evaluate right tree
     right_sum = evaluate(root.right, vars)
-    # check which operation to apply
     return operator_map(root.value, left_sum, right_sum)
 
 
@@ -97,17 +100,47 @@ def MSE(actual, predictions):
 
 
 def roulette_wheel_selection(population, fit_vec: np.array):
+    """Roulette Wheel Selection for minimizing problem"""
+    # todo : negetive mse probability
     probmax = np.sum(fit_vec)
-    selection_probs = fit_vec / probmax
+    selection_probs = 1 -  fit_vec / probmax
     return population[np.random.choice(len(population), p=selection_probs)]
 
 
-def mutate(child):
-    pass
+# def mutate(child):
+#     pass
 
 
-def crossover(x, y):
-    pass
+def crossover(x: Node, y):
+    print("______________________________________________________")
+    print(x)
+    print(y)
+    inorder_x = x.inorder
+    inorder_y = y.inorder
+    print(inorder_x, '\n',inorder_y)
+    x_node = Node(1)
+    y_node = Node(1)
+    print(f"{x_node=}")
+    print(f"{y_node=}")
+
+    while x_node.value not in op:
+        x_node = choice(inorder_x)
+    while y_node.value not in op:
+        y_node = choice(inorder_y)
+    print(x_node)
+    print(y_node)
+    temp =Node(1)
+    temp.right = x_node.right
+    temp.left = x_node.left
+    temp.value = x_node.value
+    x_node.left = y_node.left
+    x_node.right = y_node.right
+    x_node.value = y_node.value
+    y_node.left = temp.left
+    y_node.right = temp.right
+    y_node.value = temp.value
+    print(x)
+    print(y)   
 
 
 def genetic_algo(population, mse, mutation_probability):
@@ -127,19 +160,6 @@ def genetic_algo(population, mse, mutation_probability):
 def main():
     # test()
     # np.set_printoptions(precision=3)
-    op = {'+', '-', '*', '/', '^',
-          'sin', 'cos'}
-    op_info = {'+': (2, 1), '-': (2, 1),
-               '*': (2, 2), '/': (2, 2),
-               '^': (2, 3),
-               'sin': (1, 4), 'cos': (1, 4)}
-    assotiation = {'+': 'LR', '-': 'LR',
-                   '*': 'LR', '/': 'LR',
-                   '^': 'RL',
-                   'sin': 'RL', 'cos': 'RL'}
-    varchar = {'x'}
-    strscope = 'x'
-    scope = [c for c in strscope]
 
     x = np.array(range(1, 10), dtype='float')
     y = f(x)
@@ -160,7 +180,7 @@ def main():
         print(f"{index}:", randexpr_exp[index], "& ", expression)
         pprint(y_pred[index])
         print(randexpr_tree[index])
-        
+
     mse = np.array([MSE(y, gg) for gg in y_pred])
     print(mse)
 

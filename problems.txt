@@ -1,0 +1,268 @@
+❯ & "C:/Program Files/Python310/python.exe" d:/Aryan/GitRepos/FormulaFinding/main.py
+x=array([1., 2., 3., 4., 5., 6., 7., 8., 9.])
+y=array([2.00000000e+00, 6.00000000e+00, 3.00000000e+01, 2.60000000e+02,
+       3.13000000e+03, 4.66620000e+04, 8.23550000e+05, 1.67772240e+07,
+       3.87420498e+08])
+scope=['x']
+num_ops=5
+num_exp=5
+0: (x-x) &  (x - x)
+array([0., 0., 0., 0., 0., 0., 0., 0., 0.])
+
+  -
+ / \
+x   x
+
+1: x+x &  x + x
+array([ 2.,  4.,  6.,  8., 10., 12., 14., 16., 18.])
+
+  +
+ / \
+x   x
+
+2: x+x*(x-x) &  x + x * (x - x)
+array([1., 2., 3., 4., 5., 6., 7., 8., 9.])
+
+  +__
+ /   \
+x     *__
+     /   \
+    x     -
+         / \
+        x   x
+
+3: ((x-x)-(x-x)) &  ((x - x) - (x - x))
+array([0., 0., 0., 0., 0., 0., 0., 0., 0.])
+
+    __-__
+   /     \
+  -       -
+ / \     / \
+x   x   x   x
+
+d:\Aryan\GitRepos\FormulaFinding\main.py:76: RuntimeWarning: invalid value encountered in divide
+  return left_sum / right_sum
+4: (((x-x)-(x-x))/(x-x)) &  (((x - x) - (x - x)) / (x - x))
+array([nan, nan, nan, nan, nan, nan, nan, nan, nan])
+
+        ______/__
+       /         \
+    __-__         -
+   /     \       / \
+  -       -     x   x
+ / \     / \
+x   x   x   x
+
+[1.67085331e+16 1.67085315e+16 1.67085323e+16 1.67085331e+16
+            nan]
+Traceback (most recent call last):
+  File "d:\Aryan\GitRepos\FormulaFinding\main.py", line 281, in <module>
+    main()
+  File "d:\Aryan\GitRepos\FormulaFinding\main.py", line 201, in main
+    genetic_algo(population=randexpr_tree, mse=mse, mutation_probability=0)
+  File "d:\Aryan\GitRepos\FormulaFinding\main.py", line 165, in genetic_algo
+    x = roulette_wheel_selection(population, mse)
+  File "d:\Aryan\GitRepos\FormulaFinding\main.py", line 119, in roulette_wheel_selection     
+    return population[np.random.choice(len(population), p=selection_probs)]
+  File "mtrand.pyx", line 935, in numpy.random.mtrand.RandomState.choice
+ValueError: probabilities contain NaN
+
+
+
+
+______________________________________________________
+
+    __*__________
+   /             \
+  +         ______*
+ / \       /       \
+x   x     ^__       x
+         /   \
+        x     +
+             / \
+            x   x
+
+
+    __*__________
+   /             \
+  +         ______*
+ / \       /       \
+x   x     ^__       x
+         /   \
+        x     +
+             / \
+            x   x
+
+[Node(x), Node(+), Node(x), Node(*), Node(x), Node(^), Node(x), Node(+), Node(x), Node(*), Node(x)]
+ [Node(x), Node(+), Node(x), Node(*), Node(x), Node(^), Node(x), Node(+), Node(x), Node(*), Node(x)]
+x_node=Node(1)
+y_node=Node(1)
+
+    ______*
+   /       \
+  ^__       x
+ /   \
+x     +
+     / \
+    x   x
+
+
+  +
+ / \
+x   x
+
+
+    __*__
+   /     \
+  +       +
+ / \     / \
+x   x   x   x
+
+
+    __*__
+   /     \
+  +       +
+ / \     / \
+x   x   x   x
+
+
+
+
+
+
+
+________________________________________________________________________________________________________________________________
+x=array([1., 2., 3., 4., 5., 6., 7., 8., 9.])
+y=array([2.00000000e+00, 6.00000000e+00, 3.00000000e+01, 2.60000000e+02,
+       3.13000000e+03, 4.66620000e+04, 8.23550000e+05, 1.67772240e+07,
+       3.87420498e+08])
+scope=['x']
+num_ops=5
+num_exp=5
+0: (x^x) &  (x ^ x)
+array([1.00000000e+00, 4.00000000e+00, 2.70000000e+01, 2.56000000e+02,
+       3.12500000e+03, 4.66560000e+04, 8.23543000e+05, 1.67772160e+07,
+       3.87420489e+08])
+
+  ^
+ / \
+x   x
+
+d:\Aryan\GitRepos\FormulaFinding\main.py:78: RuntimeWarning: overflow encountered in power   
+  return left_sum ** right_sum
+1: (x^(x^x)) &  (x ^ (x ^ x))
+array([1.00000000e+000, 1.60000000e+001, 7.62559748e+012, 1.34078079e+154,
+                   inf,             inf,             inf,             inf,
+                   inf])
+
+  ^__
+ /   \
+x     ^
+     / \
+    x   x
+
+2: (x/(x^(x^x))) &  (x / (x ^ (x ^ x)))
+array([1.00000000e+000, 1.25000000e-001, 3.93411796e-013, 2.98333629e-154,
+       0.00000000e+000, 0.00000000e+000, 0.00000000e+000, 0.00000000e+000,
+       0.00000000e+000])
+
+  /__
+ /   \
+x     ^__
+     /   \
+    x     ^
+         / \
+        x   x
+
+3: ((x^(x^x))/(x^x)) &  ((x ^ (x ^ x)) / (x ^ x))
+array([1.00000000e+000, 4.00000000e+000, 2.82429536e+011, 5.23742497e+151,
+                   inf,             inf,             inf,             inf,
+                   inf])
+
+    ______/__
+   /         \
+  ^__         ^
+ /   \       / \
+x     ^     x   x
+     / \
+    x   x
+
+d:\Aryan\GitRepos\FormulaFinding\main.py:71: RuntimeWarning: invalid value encountered in multiply
+  return left_sum * right_sum
+4: ((x/(x^(x^x)))*((x^(x^x))/(x^x))) &  ((x / (x ^ (x ^ x))) * ((x ^ (x ^ x)) / (x ^ x)))    
+array([1.        , 0.5       , 0.11111111, 0.015625  ,        nan,
+              nan,        nan,        nan,        nan])
+
+    __________*__________
+   /                     \
+  /__               ______/__
+ /   \             /         \
+x     ^__         ^__         ^
+     /   \       /   \       / \
+    x     ^     x     ^     x   x
+         / \         / \
+        x   x       x   x
+
+d:\Aryan\GitRepos\FormulaFinding\main.py:112: RuntimeWarning: overflow encountered in square 
+  return np.square(np.subtract(actual, predictions)).mean()
+[3.16666667e+01            inf 1.67085331e+16            inf
+            nan]
+Traceback (most recent call last):
+  File "d:\Aryan\GitRepos\FormulaFinding\main.py", line 279, in <module>
+    main()
+  File "d:\Aryan\GitRepos\FormulaFinding\main.py", line 199, in main
+    genetic_algo(population=randexpr_tree, mse=mse, mutation_probability=0)
+  File "d:\Aryan\GitRepos\FormulaFinding\main.py", line 163, in genetic_algo
+    x = roulette_wheel_selection(population, mse)
+  File "d:\Aryan\GitRepos\FormulaFinding\main.py", line 119, in roulette_wheel_selection     
+    return population[np.random.choice(len(population), p=selection_probs)]
+  File "mtrand.pyx", line 935, in numpy.random.mtrand.RandomState.choice
+ValueError: probabilities contain NaN
+
+
+
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+['x',
+ '(x + x)',
+ '(x + x) - (x + x)',
+ 'x * (x + x) - (x + x)',
+ 'x * (x + x)',
+ '(x - x * (x + x) - (x + x))',
+ 'x - x',
+ 'x - x',
+ '((x + x) - (x + x) - x - x)',
+ 'x * (x + x) - (x + x) - x * (x + x)',
+ 'x - x * (x + x)']
+
+ 
+0: x &  x
+Node(*)
+
+x
+
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+Cell In[62], line 9
+      7 randexpr_exp.append(test)
+      8 randexpr_tree.append(test.tree())
+----> 9 y_pred.append(evaluate_vectorized(randexpr_tree[index], x))
+     10 print(f"{index}:", randexpr_exp[index], "& ", expression)
+     11 pprint(y_pred[index])
+
+Cell In[8], line 15, in evaluate_vectorized(root, vars)
+     13 left_sum = evaluate_vectorized(root.left, vars)
+     14 right_sum = evaluate_vectorized(root.right, vars)
+---> 15 return operator_map(root.value, left_sum, right_sum)
+
+Cell In[2], line 3, in operator_map(ch, left_sum, right_sum)
+      1 def operator_map(ch: str, left_sum, right_sum):
+      2     if ch == '+':
+----> 3         return left_sum + right_sum
+      4     elif ch == '-':
+      5         return left_sum - right_sum
+
+TypeError: unsupported operand type(s) for +: 'Node' and 'Node'
