@@ -3,3 +3,10 @@
 # WARNING: An indication that something unexpected happened, or indicative of some problem in the near future (e.g. ‘disk space low’). The software is still working as expected.
 # ERROR: Due to a more serious problem, the software has not been able to perform some function.
 # CRITICAL: A serious error, indicating that the program itself may be unable to continue running.
+
+
+
+# logging.basicConfig(level=logging.DEBUG, file='../log/log1.txt',
+#                     format='%(asctime)s  %(levelname)s : %(message)s')
+
+# import logging
