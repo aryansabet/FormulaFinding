@@ -1,0 +1,262 @@
+❯ & "C:/Program Files/Python310/python.exe" d:/Aryan/GitRepos/FormulaFinding/src/export.py
+x=array([-5, -4, -3, -2, -1,  0,  1,  2,  3,  4])
+y=array([-1260,  -264,    -6,    12,     0,     0,     6,    84,   492,
+        1800])
+num_ops=50
+num_exp=300
+x
+0
+2*x
+x**2
+x**2 - x
+x**2 - x
+-x**2 + 2*x
+2*x
+x**2 - x
+-x**2 + x
+2*x**2 - 2*x
+x**2 - 2*x
+-x**3 + x**2 - x
+2*x
+x**2 + x
+2*x**2 - x
+x**2 + x
+-x**2 + 2*x
+x**3 - 2*x**2 + 3*x
+x**2 + x
+x**3 - 3*x**2 + 4*x
+0
+x**3 - x**2 + 2*x
+(x**2 + x)**2
+-x**2 + 3*x
+3*x
+4*x
+4*x
+-x**2 + (-x**2 + 3*x)*(2*x**2 - 2*x)
+-x**3 - 2*x
+-x**3 - 2*x
+x**2 - 2*x
+-x**2 + 3*x
+x**2 - 2*x
+x**3 - 2*x**2 + x*(-x**2 + 3*x)*(2*x**2 - 2*x) + x
+2*x**2
+x**3 - 3*x**2 + x*(-x**2 + 3*x)*(2*x**2 - 2*x) + 3*x
+6*x
+x*(x**3 - 2*x**2 + 3*x) + x
+-x**2 + 3*x
+x*(-x**3 - 2*x) + x
+x**2*(-x**2 + 3*x) - x
+x**3 - 2*x**2 + 7*x
+x**3 - x**2 + x*(-x**3 + x**2 - x) + x
+2*x**2 - x - (x**2 + x)**2
+x**2 + 3*x
+x**3*(-x**3 - 2*x) + x
+-x**3 + 2*x**2 - x*(-x**2 + 3*x)*(2*x**2 - 2*x) - x
+4*x
+-x**3 + 3*x**2 - x*(-x**2 + 3*x)*(2*x**2 - 2*x) - 2*x
+x**2 + 3*x + (x**2 + x)**2
+x
+0
+2*x
+x**2
+x**2 - x
+x**2 + x
+-x**2
+0
+x**2 - x
+-x**2 + x
+0
+x**2
+-x**3 + x**2 + x
+0
+x**2 + x
+2*x**2 - x
+x**2 + x
+x**2
+-x**3 + x
+x**2 - 3*x
+-x**3 - x**2 + 2*x
+0
+-x**3 - x**2
+(x**2 - 3*x)**2
+-x**2 + 3*x
+3*x
+2*x
+0
+x**2
+-x**3
+-x**3 + 2*x**2
+x**2
+-x**2 + 3*x
+x**2 - 2*x
+-x**3 - 2*x**2 + x
+-2*x
+-x**3 - 3*x**2 + x
+6*x
+x*(-x**3 + x) - x
+-x**2 + x
+x*(-x**3 + 2*x**2) - x
+x**2*(-x**2 + 3*x) - x
+-x**3 + x
+-x**3 - x**2 - x*(-x**3 + x**2 + x) + x
+2*x**2 - x + (x**2 - 3*x)**2
+x**2 + x
+x**3*(-x**3 + 2*x**2) - x
+x**3 + 4*x**2 - x
+4*x
+x**3 + 3*x**2 - 2*x
+x**2 + x + (x**2 - 3*x)**2
+len(population)=51 || saving*len(population)=10.200000000000001
+Gen:0 --- min:386910  |  mean:1492135
+x**2*(-x**2 + 3*x) - x
+len(population)=50 || saving*len(population)=10.0
+Gen:1 --- min:307064  |  mean:7065686
+x**2*(-x**2 + 7*x) - x
+len(population)=50 || saving*len(population)=10.0
+Gen:2 --- min:243421  |  mean:4333058
+6*x**3 - x
+len(population)=50 || saving*len(population)=10.0
+Gen:3 --- min:174769  |  mean:8382975
+9*x**3 - x
+len(population)=50 || saving*len(population)=10.0
+Gen:4 --- min:151846  |  mean:19923623
+12*x**3 - x
+len(population)=50 || saving*len(population)=10.0
+Gen:5 --- min:151797  |  mean:444013
+12*x**3
+len(population)=50 || saving*len(population)=10.0
+Gen:6 --- min:89180  |  mean:13923654
+x**2*(x**2 + 12*x) - x
+len(population)=50 || saving*len(population)=10.0
+Gen:7 --- min:67250  |  mean:9219332
+x**2*(x**2 + 16*x) - x
+len(population)=50 || saving*len(population)=10.0
+Gen:8 --- min:65111  |  mean:81980047
+x**2*(x**2 + 15*x) - x
+len(population)=50 || saving*len(population)=10.0
+Gen:9 --- min:65111  |  mean:5069317
+x**2*(x**2 + 15*x) - x
+len(population)=50 || saving*len(population)=10.0
+Gen:10 --- min:65111  |  mean:9350887
+x**2*(x**2 + 15*x) - x
+len(population)=50 || saving*len(population)=10.0
+Gen:11 --- min:65111  |  mean:6013650
+x**2*(x**2 + 15*x) - x
+len(population)=50 || saving*len(population)=10.0
+Gen:12 --- min:65111  |  mean:6062381
+x**2*(x**2 + 15*x) - x
+len(population)=50 || saving*len(population)=10.0
+Gen:13 --- min:65111  |  mean:8871462
+x**2*(x**2 + 15*x) - x
+len(population)=50 || saving*len(population)=10.0
+Gen:14 --- min:76  |  mean:36844459
+x**3*(x**2 + 3*x) - x
+len(population)=50 || saving*len(population)=10.0
+Gen:15 --- min:34  |  mean:77659996
+x**3*(x**2 + 3*x)
+len(population)=50 || saving*len(population)=10.0
+Gen:16 --- min:34  |  mean:99014427
+x**3*(x**2 + 3*x)
+len(population)=50 || saving*len(population)=10.0
+Gen:17 --- min:34  |  mean:55578742672
+x**3*(x**2 + 3*x)
+len(population)=50 || saving*len(population)=10.0
+Gen:18 --- min:34  |  mean:141092168766
+x**3*(x**2 + 3*x)
+len(population)=50 || saving*len(population)=10.0
+Gen:19 --- min:8  |  mean:265250521167
+x**3*(x**2 + 3*x) + x
+len(population)=50 || saving*len(population)=10.0
+Gen:20 --- min:8  |  mean:348947576413
+x**3*(x**2 + 3*x) + x
+len(population)=50 || saving*len(population)=10.0
+Gen:21 --- min:8  |  mean:232874151564
+x**3*(x**2 + 3*x) + x
+__________________________________________________________________
+                   0  |  x**3*(x**2 + 3*x) + 2*x
+                   8  |  x**3*(x**2 + 3*x) + x
+                  34  |  x**3*(x**2 + 3*x)
+                  34  |  x**3*(x**2 + 3*x)
+                  34  |  x**3*(x**2 + 3*x)
+                  34  |  x**3*(x**2 + 3*x)
+                  34  |  x**3*(x**2 + 3*x)
+                  34  |  x**3*(x**2 + 3*x)
+                  34  |  x**3*(x**2 + 3*x)
+                  34  |  x**3*(x**2 + 3*x)
+                  76  |  x**3*(x**2 + 3*x) - x
+                  76  |  x**3*(x**2 + 3*x) - x
+                  76  |  x**3*(x**2 + 3*x) - x
+                  76  |  x**3*(x**2 + 3*x) - x
+               55484  |  x**3*(x**2 + 4*x) - x
+              210459  |  x**3*(x**2 + x) - x
+              210459  |  x**3*(x**2 + x) - x
+              211667  |  x**3*(x**2 + x)
+              217959  |  x**3*(x**2 + 5*x) - x
+              217959  |  x**3*(x**2 + 5*x) - x
+              460156  |  x*(x**2 + 3*x) - x
+              496334  |  x**2*(x**2 + 2*x)
+              499674  |  x**2*(x**2 + 2*x) - x
+              505019  |  3*x
+              505510  |  x**2 + 3*x
+              508732  |  x**2 + 2*x
+              511972  |  x**2 + x
+              511972  |  x**2 + x
+              511972  |  x**2 + x
+              511972  |  x**2 + x
+              515228  |  x**2
+              515228  |  x**2
+              515228  |  x**2
+              518502  |  x**2 - x
+              518524  |  4*x**2
+              635015  |  x**4 + x
+              638871  |  x**4
+             1885340  |  x*(x**2 + 3*x)*(x**2 + 8*x) - x
+             2865913  |  6*x**4
+            10130456  |  x**3*(x*(x**2 + 3*x) + x)
+            13326301  |  x**2*(x**2*(x**2 + 2*x) + 2*x)
+           130457104  |  x**3*(x**2*(x**2 + 5*x) + x) + x
+           629201286  |  x**3*(x**4 + x)
+          3715163581  |  x**3*(x*(x**2 + x)*(x**2 + 3*x) + 3*x)
+          3772464697  |  x**3*(x**3*(x**2 + 3*x) - x) + x
+          3780495351  |  x*(x**2 + 3*x)*(x**5 - x) - x
+          6640730260  |  x**3*(x**3*(x**2 + 2*x) + x) - x
+         15252375055  |  x**3*(2*x**3*(x**2 + 3*x) + x) - x
+        394442895627  |  x**3*(x**6 + x) - x
+       3661748323901  |  x*(x**2 + 2*x)*(x**3*(x**4 + x) - x) - x
+__________________________________________________________________
+Gen:final --- min:0  |  mean:81803006387
+x**3*(x**2 + 3*x) + 2*x
+
+  +__
+ /   \
+x     +__
+     /   \
+    x     +______________________________
+         /                               \
+        x                           ______-
+                                   /       \
+                __________________*__       x
+               /                     \
+              *__                     *
+             /   \                   / \
+            x     +__               x   x
+                 /   \
+                x     +__
+                     /   \
+                    x     +__
+                         /   \
+                        x     *
+                             / \
+                            x   x
+
+(x+(x+(x+(((x*(x+(x+(x+(x*x)))))*(x*x))-x))))
+x**3*(x**2 + 3*x) + 2*x
+
+
+debugflag = False
+numexp=300
+numops=50
+number_max_gen =100
+mutation_percent = 0.1
+PROP_BINARY = 1.0
+BigLog = False
