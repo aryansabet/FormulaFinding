@@ -19,6 +19,7 @@ import sympy
 import copy
 from typing import Dict, List, Set, Tuple
 import numexpr as ne
+from matplotlib import pyplot as plt
 # import logging
 from expression_tree import Expression
 from mytools import operator_map, expTree2str, evaluate, evaluate_np
@@ -28,10 +29,12 @@ from first_population import generate_expressions
 debugflag = False
 numexp=300
 numops=50
-number_max_gen =100
+number_max_gen =200
 mutation_percent = 0.1
 PROP_BINARY = 1.0
 BigLog = False
+
+
 
 
 # %%
@@ -40,6 +43,8 @@ def f(x):
     return x**5 + 3*x**4 + 2*x
     # return -9*x**6 + 6*x**5 + 3*x**4 + 2*x
     # return x**5 + 3*x**4 + 2*x + np.sin(x)
+
+y_plot = []
 
 # %%
 op = {'+', '-', '*', '/', '^',
@@ -70,9 +75,10 @@ def printPopulMse(population,mse=None) -> None:
 
 def printGenStatus(abc:int,mse:np.array, population:Node) -> None:
     print("Gen:{0} --- min:{1}  |  mean:{2}".format(abc,int(np.min(mse)),int(np.mean(mse))))
+    y_plot.append(int(np.min(mse)))
     if not BigLog:
         print(str(sympy.sympify(str(expTree2str(population[0])))))
-    
+
 
 # %%
 def MSE(actual:np.array, predictions:np.array):
@@ -267,6 +273,12 @@ def genetic_algo(population: list, mutation_probability: float, saving: float, x
 
 res = genetic_algo(population=randexpr_tree, saving=0.2,
                    mutation_probability=mutation_percent, x=x, y=y)
+
+x_plot = list(range(0,len(y_plot)))
+# print(x_plot)
+# print(y_plot)
+plt.plot(x_plot , y_plot)
+plt.show()
 print(res[0])
 print(expTree2str(res[0]))
 print(str(
